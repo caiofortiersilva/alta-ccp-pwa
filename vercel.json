@@ -2,8 +2,17 @@
   "functions": {
     "api/generate.js": {
       "maxDuration": 30
+    },
+    "api/generate2.js": {
+      "maxDuration": 30
     }
   },
+  "rewrites": [
+    {
+      "source": "/api/generate",
+      "destination": "/api/generate2"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
