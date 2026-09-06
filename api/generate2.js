@@ -3,18 +3,18 @@ const path = require('path');
 
 // O gerador legado usa ImageRun para inserir o brasão da UFC.
 // Para maximizar a compatibilidade com Word, Google Docs e WPS no celular,
-// usamos uma versão JPEG do brasão completo sobre fundo branco.
+// usamos uma versão PNG opaca (RGB, sem canal alfa) do brasão completo.
 const docxPath = require.resolve('docx');
 const docx = require(docxPath);
 const OriginalImageRun = docx.ImageRun;
 const fullLogo = Buffer.from(
-  fs.readFileSync(path.join(__dirname, 'ufc-logo-jpg.b64'), 'utf8').trim(),
+  fs.readFileSync(path.join(__dirname, 'ufc-logo-opaque.b64'), 'utf8').trim(),
   'base64'
 );
 
 class FullLogoImageRun extends OriginalImageRun {
   constructor(options = {}) {
-    super({ ...options, data: fullLogo, type: 'jpg' });
+    super({ ...options, data: fullLogo, type: 'png' });
   }
 }
 
