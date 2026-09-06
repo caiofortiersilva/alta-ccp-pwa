@@ -1,13 +1,15 @@
 {
-  "name": "Papelada CCP — HUWC",
-  "short_name": "Papelada CCP",
-  "description": "Geração de documentos de admissão do serviço de Cirurgia de Cabeça e Pescoço do HUWC.",
-  "start_url": "/",
+  "name": "Alta CCP",
+  "short_name": "Alta CCP",
+  "description": "Widget para geração estruturada de documentos de alta do Serviço de Cirurgia de Cabeça e Pescoço.",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#0f100f",
-  "theme_color": "#152419",
+  "background_color": "#0f1115",
+  "theme_color": "#1e5c35",
+  "orientation": "portrait-primary",
   "icons": [
-    {"src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png"},
-    {"src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png"}
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
   ]
 }
