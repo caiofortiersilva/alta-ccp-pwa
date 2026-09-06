@@ -148,7 +148,7 @@ window.rm=i=>{q.splice(i,1);render()};
 function clearForm(){["paciente","procedimento","cid","dataProc","dataInt","dias","acNome","acCpf","acIni","acFim","simplesOutros","endereco","especialOutros"].forEach(id=>$(id).value="");["d1","d2","d3","d4"].forEach(id=>$(id).checked=false);S.forEach((m,i)=>{$("sc"+i).checked=false;$("st"+i).value=m[1];$("st"+i).classList.add("hidden")});E.forEach((m,i)=>{$("ec"+i).checked=false;$("et"+i).value=m[1];$("et"+i).classList.add("hidden")});vis()}
 $("add").onclick=()=>{const x=collect();if(!x.paciente)return alert("Informe o nome do paciente.");if(!["d1","d2","d3","d4"].some(id=>$(id).checked))return alert("Selecione pelo menos um documento.");q.push(x);render();clearForm()};
 $("clear").onclick=clearForm;$("esvaziar").onclick=()=>{q.length=0;render()};
-function payload(){return {hoje:new Date().toISOString().slice(0,10),recipient:$("recipient").value,pacientes:q}}
+function payload(){return {payload:{hoje:new Date().toISOString().slice(0,10),pacientes:q},recipient:$("recipient").value}}
 async function copyPayload(){if(!q.length)return alert("A fila está vazia.");const p=payload();const txt="GERAR_DOCUMENTOS_ALTA_LOTE\nJSON_INICIO\n"+JSON.stringify(p,null,2)+"\nJSON_FIM";try{await navigator.clipboard.writeText(txt);setFeedback("Dados copiados.","ok")}catch(e){prompt("Copie o conteúdo abaixo:",txt)}}
 $("copy").onclick=copyPayload;
 function setFeedback(t="",type=""){$("feedback").textContent=t;$("feedback").className="feedback"+(type?" "+type:"")}
@@ -158,7 +158,7 @@ $("send").onclick=async()=>{
   const key=$("appKey").value.trim();
   const btn=$("send"),old=btn.innerHTML;btn.disabled=true;btn.innerHTML='<span class="spinner"></span>Gerando e enviando...';setFeedback("");
   try{
-    const r=await fetch("/api/generate",{method:"POST",headers:{"Content-Type":"application/json","X-App-Key":key},body:JSON.stringify(payload())});
+    const r=await fetch("/api/generate2",{method:"POST",headers:{"Content-Type":"application/json","X-App-Key":key},body:JSON.stringify(payload())});
     let data={};try{data=await r.json()}catch{}
     if(!r.ok)throw new Error(data.error||`Erro ${r.status}`);
     setFeedback(`${data.generated} documento(s) enviado(s) com sucesso.`,"ok");q.length=0;render();
