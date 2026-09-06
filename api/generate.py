@@ -9,17 +9,23 @@ import zipfile
 from copy import deepcopy
 from email.message import EmailMessage
 from http.server import BaseHTTPRequestHandler
+from pathlib import Path
 
 from docx import Document
 from docx.text.paragraph import Paragraph
 
-from templates_data import get_template
-
+BASE = Path(__file__).resolve().parent
+TEMPLATE_DIR = BASE / 'templates'
+TEMPLATE_FILES = {
+    'atestado': 'Atestado.docx',
+    'acompanhante': 'Declaracao_Acompanhante.docx',
+    'simples': 'Receituario_Simples.docx',
+    'especial': 'Receituario_Controle_Especial.docx',
+}
 PT_MONTHS = ['JANEIRO','FEVEREIRO','MARÇO','ABRIL','MAIO','JUNHO','JULHO','AGOSTO','SETEMBRO','OUTUBRO','NOVEMBRO','DEZEMBRO']
 
 def _template_bytes(kind):
-    key={'atestado':'ATESTADO','acompanhante':'ACOMPANHANTE','simples':'SIMPLES','especial':'ESPECIAL'}[kind]
-    return get_template(key)
+    return (TEMPLATE_DIR / TEMPLATE_FILES[kind]).read_bytes()
 
 def _br_date(iso):
     y,m,d = [int(x) for x in str(iso).split('-')]
