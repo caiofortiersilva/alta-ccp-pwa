@@ -1,93 +1,228 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#152419" />
-  <meta name="robots" content="noindex,nofollow,noarchive" />
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <link rel="manifest" href="/manifest.webmanifest" />
-  <link rel="icon" href="/icons/icon-192.png" />
-  <title>Papelada CCP — Admissões</title>
-  <style>
-    :root{--bg:#0f100f;--card:#151615;--field:#1a1b19;--field2:#20211f;--border:#2d2f2b;--text:#f3f4ef;--muted:#a8aaa4;--muted2:#777a73;--accent:#a2ca7a;--danger:#f0a0a0;--warn:#efd69a;--ok:#b9dda0;--r:18px;--r2:13px}
-    *{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}body{min-height:100vh;padding:calc(16px + env(safe-area-inset-top)) 14px calc(26px + env(safe-area-inset-bottom))}.app{max-width:720px;margin:auto}
-    .top{display:flex;gap:12px;align-items:flex-start;justify-content:space-between;margin-bottom:16px}.brand{min-width:0}.eyebrow{color:var(--accent);font-size:11px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;margin-bottom:4px}h1{font-family:Georgia,"Times New Roman",serif;font-size:24px;line-height:1.06;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sub{font-size:12.5px;color:var(--muted);line-height:1.45;margin:7px 0 0}.install{flex:0 0 auto;border:1px solid #48563f;background:#20271c;color:#eaf5e0;border-radius:12px;padding:9px 11px;font-weight:800;font-size:12px;cursor:pointer}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,.018),rgba(255,255,255,.006));border:1px solid var(--border);border-radius:var(--r);padding:15px;box-shadow:0 16px 50px rgba(0,0,0,.34)}.grid{display:grid;gap:14px}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:560px){.two{grid-template-columns:1fr}}
-    label{display:block;font-size:14px;font-weight:850;margin-bottom:7px}.field,.select{width:100%;background:var(--field);border:1px solid var(--border);color:var(--text);border-radius:var(--r2);padding:14px 14px;font-size:16px;outline:none}.field:focus,.select:focus{border-color:#516047;background:var(--field2)}.field::placeholder{color:var(--muted2)}.select{appearance:none}.selectWrap{position:relative}.selectWrap:after{content:"⌄";position:absolute;right:13px;top:50%;transform:translateY(-58%);pointer-events:none;color:var(--muted);font-size:20px}.hint{font-size:11.7px;line-height:1.4;color:var(--muted);margin:7px 1px 0}.hidden{display:none!important}
-    .btn{width:100%;min-height:48px;border:1px solid var(--border);border-radius:14px;background:var(--field);color:var(--text);padding:12px 15px;font-size:15px;font-weight:850;cursor:pointer}.btn.primary{background:#20271c;border-color:#46573b}.btn.send{background:#294020;border-color:#607f4f;color:#f1f8ec}.btn:disabled{opacity:.38;cursor:not-allowed}.divider{height:1px;background:var(--border);margin:17px 0}.sectionHead{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}.sectionTitle{margin:0;font-size:15px;font-weight:900}.count{font-size:12px;color:var(--muted);border:1px solid var(--border);background:var(--field);border-radius:999px;padding:5px 8px}.empty{border:1px dashed var(--border);border-radius:14px;padding:14px;color:var(--muted);font-size:13px}.list{display:grid;gap:9px}.patient{display:grid;grid-template-columns:1fr auto;gap:10px;padding:12px;border:1px solid var(--border);border-radius:13px;background:var(--field)}.patientName{font-weight:900;font-size:14px}.patientMeta{margin-top:4px;color:var(--muted);font-size:12px;line-height:1.45}.actions{display:flex;flex-direction:column;gap:5px}.mini{height:32px;border:1px solid var(--border);border-radius:9px;background:#141513;color:var(--muted);font-size:11px;font-weight:800;cursor:pointer}.mini.del{color:var(--danger)}
-    details.settings{margin-top:15px;border-top:1px solid var(--border);padding-top:14px}details.settings summary{cursor:pointer;color:#c8cbbf;font-weight:850;font-size:13px}.settingsBody{display:grid;gap:12px;margin-top:12px}.status{min-height:20px;font-size:12px;line-height:1.4;color:var(--muted);margin-top:9px}.status.ok{color:var(--ok)}.status.err{color:#ffadad}.status.warn{color:var(--warn)}.sticky{position:sticky;bottom:6px;padding-top:13px;background:linear-gradient(180deg,rgba(15,16,15,0),rgba(15,16,15,.96) 35%)}.foot{margin:13px 4px 0;text-align:center;color:var(--muted2);font-size:10.8px;line-height:1.45}.linkBtn{border:0;background:transparent;color:var(--muted);font-size:11.5px;padding:7px;cursor:pointer}.rowEnd{display:flex;justify-content:flex-end;gap:6px}.spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.28);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite;vertical-align:-2px;margin-right:7px}@keyframes spin{to{transform:rotate(360deg)}}
-    .privacy{margin-top:11px;padding:11px 12px;border-radius:12px;background:#121512;border:1px solid #2d352a;color:#9da595;font-size:11.3px;line-height:1.45}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#1e5c35">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>Alta CCP</title>
+<style>
+:root{
+  --bg:#0f1115;--card:#171a21;--card2:#1c222b;--text:#f5f7f8;--muted:#aab2bd;
+  --border:#303846;--green:#2f9e44;--green2:#237a35;--danger:#b02a37;--chip:#222936
+}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+body{padding:env(safe-area-inset-top) 14px env(safe-area-inset-bottom)}
+.wrap{max-width:920px;margin:auto;padding:14px 0 30px}
+.header{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.logo{width:44px;height:44px;border-radius:13px}.title h1{font-size:22px;margin:0}.title p{margin:2px 0 0;color:var(--muted);font-size:13px}
+.card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--border);border-radius:18px;padding:16px;margin-bottom:14px}
+h2{font-size:17px;margin:0 0 10px}.muted{color:var(--muted);font-size:13px}.docs{display:grid;gap:10px}
+.doc{display:flex;align-items:center;gap:12px;padding:14px;border:1px solid var(--border);border-radius:14px;background:#ffffff05}
+.doc input,.medtop input{width:20px;height:20px;accent-color:var(--green)}.ico{width:32px;text-align:center;font-size:23px}.doc strong{font-size:16px}
+.hidden{display:none!important}.section{border-top:1px solid #ffffff12;margin-top:16px;padding-top:14px}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:10px}
+.c12{grid-column:span 12}.c6{grid-column:span 6}.c4{grid-column:span 4}@media(max-width:700px){.c6,.c4{grid-column:span 12}}
+label{display:block;font-size:13px;font-weight:700;margin-bottom:5px}
+input,textarea{width:100%;background:#10151c;border:1px solid var(--border);color:var(--text);border-radius:12px;padding:11px;font-size:14px}
+textarea{min-height:72px;resize:vertical}.med{border:1px solid var(--border);border-radius:12px;padding:10px;margin:8px 0}.medtop{display:flex;align-items:center;gap:8px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.actions.sticky{position:sticky;bottom:10px;background:#11161dd9;padding:8px;border-radius:16px;backdrop-filter:blur(10px);z-index:5}
+button{border:0;border-radius:12px;padding:11px 14px;font-weight:800;font-size:14px;cursor:pointer}.primary{background:var(--green);color:white}.secondary{background:transparent;color:white;border:1px solid var(--border)}
+.danger{background:#b02a3722;color:#ffc2c8;border:1px solid #b02a3766}.queue{display:grid;gap:8px}.q{border:1px solid var(--border);border-radius:12px;padding:12px;display:flex;justify-content:space-between;gap:8px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}.chip{font-size:12px;background:var(--chip);border:1px solid var(--border);border-radius:999px;padding:4px 8px}
+.empty{border:1px dashed var(--border);border-radius:12px;padding:14px;text-align:center;color:var(--muted)}
+.notice{padding:10px;border-radius:12px;background:#1d3422;border:1px solid #315c39;font-size:13px;margin-top:10px}
+.status{font-size:12px;color:var(--muted);margin-left:auto}.install{display:none}.install.show{display:inline-block}
+</style>
 </head>
 <body>
-<main class="app">
-  <header class="top">
-    <div class="brand"><div class="eyebrow">CCP • HUWC</div><h1>PAPELADA CCP</h1><p class="sub">Admissões — Termo de Consentimento + Protocolo de TEV</p></div>
-    <button id="installBtn" class="install hidden" type="button">Instalar app</button>
-  </header>
+<div class="wrap">
+  <div class="header">
+    <img src="icon-192.png" class="logo" alt="">
+    <div class="title">
+      <h1>Alta CCP</h1>
+      <p>Documentos de alta • CCP</p>
+    </div>
+    <span class="status" id="status">online</span>
+  </div>
 
-  <section class="card">
-    <div class="grid">
-      <div><label for="nome">Nome completo do paciente</label><input id="nome" class="field" autocomplete="off" placeholder="Ex: Paloma Manoela da Silva Sotero"></div>
-      <div class="two">
-        <div><label for="prontuario">Prontuário</label><input id="prontuario" class="field" inputmode="numeric" autocomplete="off" placeholder="Ex: 1.832.951"></div>
-        <div><label for="sexo">Sexo</label><div class="selectWrap"><select id="sexo" class="select"><option value="">Selecione...</option><option>Feminino</option><option>Masculino</option></select></div></div>
-      </div>
-      <div>
-        <label for="procedimento">Procedimento / cirurgia</label>
-        <div class="two">
-          <div class="selectWrap"><select id="procedimento" class="select"><option value="">Selecione...</option><option>Tireoidectomia total</option><option>Tireoidectomia parcial</option><option>Parotidectomia</option><option>Esvaziamento cervical</option><option>Traqueostomia</option><option>Laringectomia total</option><option>Laringectomia parcial</option><option>Glossectomia</option><option>Mandibulectomia</option><option>Ressecção de tumor de cavidade oral</option><option value="Outro">Outro</option></select></div>
-          <div class="selectWrap"><select id="lateralidade" class="select"><option value="">Sem lateralidade</option><option value="direita">Direita</option><option value="esquerda">Esquerda</option><option value="bilateral">Bilateral</option></select></div>
-        </div>
-        <input id="outro" class="field hidden" style="margin-top:9px" autocomplete="off" placeholder="Digite o procedimento">
-        <p class="hint">A lateralidade entra no nome da cirurgia, mas não é especificada na lista de riscos.</p>
-      </div>
-      <div><label for="data">Data da cirurgia</label><input id="data" class="field" inputmode="numeric" maxlength="10" autocomplete="off" placeholder="Ex: 10/09/2026"><p class="hint">No TEV, a data é automaticamente a data da geração, não a data da cirurgia.</p></div>
-      <button id="addBtn" class="btn primary" type="button">Adicionar à lista</button>
-      <button id="cancelEdit" class="btn hidden" type="button">Cancelar edição</button>
+  <div class="card">
+    <h2>Quais documentos você vai gerar?</h2>
+    <div class="docs">
+      <label class="doc"><input type="checkbox" id="d1"><span class="ico">🩺</span><span><strong>Atestado médico</strong><br><span class="muted">Procedimento, CID, datas e afastamento</span></span></label>
+      <label class="doc"><input type="checkbox" id="d2"><span class="ico">👥</span><span><strong>Declaração de acompanhante</strong><br><span class="muted">CID Z76.3 fixo</span></span></label>
+      <label class="doc"><input type="checkbox" id="d3"><span class="ico">℞</span><span><strong>Receituário simples</strong><br><span class="muted">Medicações pré-preenchidas e editáveis</span></span></label>
+      <label class="doc"><input type="checkbox" id="d4"><span class="ico">💊</span><span><strong>Receituário de controle especial</strong><br><span class="muted">Duas vias e endereço do paciente</span></span></label>
     </div>
 
-    <div class="divider"></div>
-    <div class="sectionHead"><h2 class="sectionTitle">Pacientes na lista</h2><span id="count" class="count">0</span></div>
-    <div id="empty" class="empty">Nenhum paciente adicionado ainda.</div><div id="list" class="list"></div>
-    <div class="rowEnd"><button id="clear" class="linkBtn" type="button">Limpar lista</button></div>
-
-    <details class="settings" open>
-      <summary>Envio por e-mail</summary>
-      <div class="settingsBody">
-        <div><label for="email">E-mail de destino</label><input id="email" class="field" type="email" autocomplete="email" placeholder="seu-email@exemplo.com"><p class="hint">O e-mail fica salvo apenas neste aparelho. O servidor pode ser configurado para aceitar somente endereços previamente autorizados.</p></div>
-        <div><label for="appKey">Chave do aplicativo</label><input id="appKey" class="field" type="password" autocomplete="off" placeholder="Chave configurada no servidor"><p class="hint">A chave impede uso casual do endpoint por terceiros. Ela fica armazenada localmente no aparelho.</p></div>
+    <div id="form" class="hidden">
+      <div class="section">
+        <div class="grid"><div class="c12"><label>Nome do paciente</label><input id="paciente" placeholder="Nome completo"></div></div>
       </div>
-    </details>
 
-    <div class="privacy">Por privacidade, o lote de pacientes fica apenas na sessão atual do app; não é salvo em banco de dados. O assunto e o corpo do e-mail não incluem nome, prontuário ou procedimento.</div>
-    <div id="status" class="status"></div>
-    <div class="sticky"><button id="sendBtn" class="btn send" type="button" disabled>Gerar e enviar por e-mail</button></div>
-  </section>
-  <p class="foot">Requer internet para gerar/enviar. O app pode ser instalado na tela inicial após publicação em HTTPS.</p>
-</main>
+      <div id="s1" class="section hidden">
+        <h2>Atestado médico</h2>
+        <div class="grid">
+          <div class="c12"><label>Procedimento</label><input id="procedimento" placeholder="Ex.: tireoidectomia total"></div>
+          <div class="c4"><label>CID-10</label><input id="cid" placeholder="Ex.: D44.0"></div>
+          <div class="c4"><label>Data do procedimento</label><input id="dataProc" type="date"></div>
+          <div class="c4"><label>Data da internação</label><input id="dataInt" type="date"></div>
+          <div class="c4"><label>Dias de afastamento</label><input id="dias" type="number" min="1"></div>
+        </div>
+      </div>
+
+      <div id="s2" class="section hidden">
+        <h2>Declaração de acompanhante</h2>
+        <div class="grid">
+          <div class="c6"><label>Nome do acompanhante</label><input id="acNome"></div>
+          <div class="c6"><label>CPF (opcional)</label><input id="acCpf"></div>
+          <div class="c6"><label>Início</label><input id="acIni" type="date"></div>
+          <div class="c6"><label>Fim</label><input id="acFim" type="date"></div>
+        </div>
+      </div>
+
+      <div id="s3" class="section hidden">
+        <h2>Receituário simples</h2>
+        <div id="simples"></div>
+        <label>Outros (opcional)</label><textarea id="simplesOutros"></textarea>
+      </div>
+
+      <div id="s4" class="section hidden">
+        <h2>Receituário de controle especial</h2>
+        <label>Logradouro do paciente</label><input id="endereco">
+        <div id="especial"></div>
+        <label>Outros (opcional)</label><textarea id="especialOutros"></textarea>
+      </div>
+
+      <div class="actions">
+        <button class="primary" id="add">＋ Adicionar à lista</button>
+        <button class="secondary" id="clear">Limpar formulário</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Fila de pacientes</h2>
+    <div id="fila" class="queue"></div>
+    <div class="actions sticky">
+      <button class="primary" id="gerar">Copiar dados para gerar</button>
+      <button class="secondary" id="abrirChat">Abrir ChatGPT</button>
+      <button class="danger" id="esvaziar">Esvaziar</button>
+      <button class="secondary install" id="install">Instalar app</button>
+    </div>
+    <div class="notice">Depois de copiar, abra esta conversa do ChatGPT, cole e envie. Eu gero os documentos a partir dos templates-mestre.</div>
+  </div>
+</div>
+
 <script>
-  const SESS='ccp_admissoes_session_v1', EMAIL='ccp_email_v1', KEY='ccp_key_v1'; let patients=[], editing=null, installPrompt=null;
-  const $=id=>document.getElementById(id), els={nome:$('nome'),prontuario:$('prontuario'),sexo:$('sexo'),procedimento:$('procedimento'),lateralidade:$('lateralidade'),outro:$('outro'),data:$('data'),list:$('list'),empty:$('empty'),count:$('count'),send:$('sendBtn'),status:$('status'),email:$('email'),appKey:$('appKey')};
-  const clean=s=>(s||'').replace(/\s+/g,' ').trim(); const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
-  function saveSession(){sessionStorage.setItem(SESS,JSON.stringify(patients))} function load(){try{patients=JSON.parse(sessionStorage.getItem(SESS)||'[]')}catch{patients=[]} els.email.value=localStorage.getItem(EMAIL)||'';els.appKey.value=localStorage.getItem(KEY)||'';render()}
-  function setStatus(t='',type=''){els.status.textContent=t;els.status.className='status'+(type?' '+type:'')}
-  function fmtChart(v){let d=v.replace(/\D/g,'').slice(0,12),a=[];while(d.length>3){a.unshift(d.slice(-3));d=d.slice(0,-3)}if(d)a.unshift(d);return a.join('.')}
-  function fmtDate(v){const d=v.replace(/\D/g,'').slice(0,8);return d.length<=2?d:d.length<=4?d.slice(0,2)+'/'+d.slice(2):d.slice(0,2)+'/'+d.slice(2,4)+'/'+d.slice(4)}
-  function validDate(v){const m=/^(\d{2})\/(\d{2})\/(\d{4})$/.exec(v);if(!m)return false;const x=new Date(+m[3],+m[2]-1,+m[1]);return x.getFullYear()==+m[3]&&x.getMonth()==+m[2]-1&&x.getDate()==+m[1]}
-  function procedure(){let p=els.procedimento.value==='Outro'?clean(els.outro.value):clean(els.procedimento.value);if(p&&els.lateralidade.value)p+=' '+els.lateralidade.value;return p}
-  function reset(){['nome','prontuario','data'].forEach(k=>els[k].value='');els.sexo.value='';els.procedimento.value='';els.lateralidade.value='';els.outro.value='';els.outro.classList.add('hidden');editing=null;$('addBtn').textContent='Adicionar à lista';$('cancelEdit').classList.add('hidden');els.nome.focus()}
-  function render(){els.list.innerHTML='';els.count.textContent=patients.length;els.empty.classList.toggle('hidden',patients.length>0);els.send.disabled=patients.length===0;patients.forEach((p,i)=>{const d=document.createElement('div');d.className='patient';d.innerHTML=`<div><div class="patientName">${esc(p.nome)}</div><div class="patientMeta">Prontuário: ${esc(p.prontuario)} • ${esc(p.sexo)}<br>${esc(p.procedimento)}<br>Cirurgia: ${esc(p.dataCirurgia)}</div></div><div class="actions"><button class="mini" data-a="edit" data-i="${i}">Editar</button><button class="mini del" data-a="del" data-i="${i}">Excluir</button></div>`;els.list.appendChild(d)});saveSession()}
-  function add(){const p={nome:clean(els.nome.value),prontuario:clean(els.prontuario.value),sexo:els.sexo.value,procedimento:procedure(),dataCirurgia:els.data.value};if(!Object.values(p).every(Boolean))return setStatus('Preencha todos os campos obrigatórios.','err');if(!validDate(p.dataCirurgia))return setStatus('Confira a data da cirurgia.','err');if(editing===null)patients.push(p);else patients[editing]=p;render();reset();setStatus('Paciente adicionado ao lote.','ok')}
-  function edit(i){const p=patients[i];editing=i;els.nome.value=p.nome;els.prontuario.value=p.prontuario;els.sexo.value=p.sexo;els.data.value=p.dataCirurgia;const lats=['direita','esquerda','bilateral'];let base=p.procedimento,lat='';for(const l of lats)if(base.toLowerCase().endsWith(' '+l)){lat=l;base=base.slice(0,-l.length-1)}els.lateralidade.value=lat;const opts=[...els.procedimento.options].map(o=>o.value);if(opts.includes(base)){els.procedimento.value=base;els.outro.classList.add('hidden')}else{els.procedimento.value='Outro';els.outro.value=base;els.outro.classList.remove('hidden')}$('addBtn').textContent='Salvar alterações';$('cancelEdit').classList.remove('hidden');scrollTo({top:0,behavior:'smooth'})}
-  async function send(){const email=clean(els.email.value),key=els.appKey.value;if(!/^\S+@\S+\.\S+$/.test(email))return setStatus('Informe um e-mail de destino válido.','err');localStorage.setItem(EMAIL,email);localStorage.setItem(KEY,key);if(!confirm(`Gerar documentos de ${patients.length} paciente(s) e enviar para ${email}?`))return;els.send.disabled=true;els.send.innerHTML='<span class="spinner"></span>Gerando e enviando...';setStatus('Processando o lote. Não feche o app.','warn');try{const r=await fetch('/api/generate',{method:'POST',headers:{'Content-Type':'application/json','X-App-Key':key},body:JSON.stringify({email,pacientes:patients})});const j=await r.json().catch(()=>({error:'Resposta inválida do servidor.'}));if(!r.ok||!j.ok)throw new Error(j.error||'Falha ao gerar documentos.');patients=[];render();reset();setStatus(`Enviado com sucesso para ${email}. Arquivo: ${j.arquivo}`,'ok')}catch(e){setStatus(e.message||'Falha no envio.','err')}finally{els.send.innerHTML='Gerar e enviar por e-mail';els.send.disabled=patients.length===0}}
-  els.prontuario.addEventListener('input',()=>els.prontuario.value=fmtChart(els.prontuario.value));els.data.addEventListener('input',()=>els.data.value=fmtDate(els.data.value));els.procedimento.addEventListener('change',()=>{els.outro.classList.toggle('hidden',els.procedimento.value!=='Outro');if(els.procedimento.value==='Outro')els.outro.focus()});$('addBtn').onclick=add;$('cancelEdit').onclick=reset;$('clear').onclick=()=>{if(patients.length&&confirm('Limpar todo o lote?')){patients=[];render();reset();setStatus('Lista limpa.','warn')}};els.list.onclick=e=>{const b=e.target.closest('[data-a]');if(!b)return;const i=+b.dataset.i;if(b.dataset.a==='edit')edit(i);else{patients.splice(i,1);render();setStatus('Paciente removido.','warn')}};els.send.onclick=send;
-  els.email.addEventListener('change',()=>localStorage.setItem(EMAIL,clean(els.email.value)));els.appKey.addEventListener('change',()=>localStorage.setItem(KEY,els.appKey.value));
-  window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e;$('installBtn').classList.remove('hidden')});$('installBtn').onclick=async()=>{if(!installPrompt)return;installPrompt.prompt();await installPrompt.userChoice;installPrompt=null;$('installBtn').classList.add('hidden')};window.addEventListener('appinstalled',()=>$('installBtn').classList.add('hidden'));
-  if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}));load();
+const S=[
+["Dipirona 500mg","2 CP 6/6H se dor ou febre -------- 20 CP"],
+["Paracetamol 500mg","1 CP 6/6H se dor ou febre -------- 20 CP"],
+["Bromoprida 10mg (comprimido)","1 CP 8/8H se náusea/vômito -------- 10 CP"],
+["Ondansetrona 8mg","1 CP 8/8H se náusea/vômito -------- 10 CP"],
+["Dimenidrinato 50mg + Piridoxina (vit B6) 10mg","1 CP 8/8H se tontura/náusea -------- 10 CP"],
+["Calcitriol 0,25mcg","1 CP 8/8H. Uso contínuo -------- 30 CP"],
+["Colecalciferol 5000UI","1 CP 1x ao dia. Uso contínuo -------- 30 CP"],
+["Levotiroxina 100mcg","1 CP em jejum pela manhã. Uso contínuo -------- 30 CP"],
+["Levotiroxina 50mcg","1 CP em jejum pela manhã. Uso contínuo -------- 30 CP"],
+["Levotiroxina 25mcg","1 CP em jejum pela manhã. Uso contínuo -------- 30 CP"],
+["Levotiroxina 150mcg","1 CP em jejum pela manhã. Uso contínuo -------- 30 CP"],
+["Levotiroxina 125mcg","1 CP em jejum pela manhã. Uso contínuo -------- 30 CP"],
+["Carbonato de cálcio 500mg","1 CP 2x ao dia. Uso contínuo -------- 60 CP"],
+["Carbonato de cálcio + vit D 600/400","1 CP 2x ao dia. Uso contínuo -------- 30 CP"],
+["Alginac retard (diclofenaco 100mg)","1 CP 1x ao dia por 5 dias -------- 5 CP"],
+["Prednisolona 20mg","1 CP pela manhã por 5 dias -------- 5 CP"]
+];
+const E=[
+["Cefalexina 500mg","1 CP 6/6H por 7 dias -------- 28 CP"],
+["Tramadol 50mg VO","1 CP 8/8H se dor -------- 15 CP"],
+["Tramadol 100mg VO","1 CP 8/8H se dor -------- 15 CP"],
+["Codeína 30mg","1 CP 8/8H se dor -------- 15 CP"],
+["Paracetamol 500mg + Codeína 30mg","1 CP 8/8H se dor -------- 15 CP"],
+["Pregabalina (dose inicial)","75mg 1 CP à noite por 5 dias -------- 5 CP"],
+["Gabapentina (dose inicial)","300mg 1 CP à noite por 5 dias -------- 5 CP"]
+];
+const q=[],$=id=>document.getElementById(id);
+
+function medList(root,arr,p){
+  $(root).innerHTML=arr.map((m,i)=>`<div class="med"><div class="medtop"><input type="checkbox" id="${p}c${i}"><label style="margin:0">${m[0]}</label></div><textarea id="${p}t${i}" class="hidden">${m[1]}</textarea></div>`).join("");
+  arr.forEach((_,i)=>$(p+"c"+i).onchange=()=>$(p+"t"+i).classList.toggle("hidden",!$(p+"c"+i).checked));
+}
+medList("simples",S,"s"); medList("especial",E,"e");
+
+function vis(){
+  const any=["d1","d2","d3","d4"].some(id=>$(id).checked);
+  $("form").classList.toggle("hidden",!any);
+  $("s1").classList.toggle("hidden",!$("d1").checked);
+  $("s2").classList.toggle("hidden",!$("d2").checked);
+  $("s3").classList.toggle("hidden",!$("d3").checked);
+  $("s4").classList.toggle("hidden",!$("d4").checked);
+}
+["d1","d2","d3","d4"].forEach(id=>$(id).onchange=vis);
+
+const val=id=>$(id).value.trim();
+function meds(arr,p){return arr.flatMap((m,i)=>$(p+"c"+i).checked?[{nome:m[0],posologia:$(p+"t"+i).value.trim()}]:[])}
+
+function collect(){
+  const x={paciente:val("paciente")};
+  if($("d1").checked)x.atestado={procedimento:val("procedimento"),cid10:val("cid"),dataProcedimento:val("dataProc"),dataInternacao:val("dataInt"),diasAfastamento:val("dias")};
+  if($("d2").checked)x.acompanhante={acompanhanteNome:val("acNome"),acompanhanteCpf:val("acCpf"),inicio:val("acIni"),fim:val("acFim")};
+  if($("d3").checked)x.receitaSimples={meds:meds(S,"s"),outros:val("simplesOutros")};
+  if($("d4").checked)x.receitaEspecial={endereco:val("endereco"),meds:meds(E,"e"),outros:val("especialOutros")};
+  return x;
+}
+function names(x){const a=[];if(x.atestado)a.push("Atestado");if(x.acompanhante)a.push("Acompanhante");if(x.receitaSimples)a.push("Receita simples");if(x.receitaEspecial)a.push("Controle especial");return a}
+function render(){
+  $("fila").innerHTML=q.length?q.map((x,i)=>`<div class="q"><div><b>${x.paciente}</b><div class="chips">${names(x).map(n=>`<span class="chip">${n}</span>`).join("")}</div></div><button class="danger" onclick="rm(${i})">Remover</button></div>`).join(""):`<div class="empty">Nenhum paciente adicionado.</div>`;
+}
+window.rm=i=>{q.splice(i,1);render()};
+
+function clearForm(){
+  ["paciente","procedimento","cid","dataProc","dataInt","dias","acNome","acCpf","acIni","acFim","simplesOutros","endereco","especialOutros"].forEach(id=>$(id).value="");
+  ["d1","d2","d3","d4"].forEach(id=>$(id).checked=false);
+  S.forEach((m,i)=>{$("sc"+i).checked=false;$("st"+i).value=m[1];$("st"+i).classList.add("hidden")});
+  E.forEach((m,i)=>{$("ec"+i).checked=false;$("et"+i).value=m[1];$("et"+i).classList.add("hidden")});
+  vis();
+}
+$("add").onclick=()=>{
+  const x=collect();
+  if(!x.paciente)return alert("Informe o nome do paciente.");
+  if(!["d1","d2","d3","d4"].some(id=>$(id).checked))return alert("Selecione pelo menos um documento.");
+  q.push(x);render();clearForm();
+};
+$("clear").onclick=clearForm;
+$("esvaziar").onclick=()=>{q.length=0;render()};
+
+async function copyPayload(){
+  if(!q.length)return alert("A fila está vazia.");
+  const payload={hoje:new Date().toISOString().slice(0,10),pacientes:q};
+  const txt="GERAR_DOCUMENTOS_ALTA_LOTE\nJSON_INICIO\n"+JSON.stringify(payload,null,2)+"\nJSON_FIM";
+  try{await navigator.clipboard.writeText(txt);alert("Dados copiados. Agora abra esta conversa do ChatGPT e cole.");}
+  catch(e){prompt("Copie o conteúdo abaixo:",txt)}
+}
+$("gerar").onclick=copyPayload;
+$("abrirChat").onclick=()=>window.open("https://chatgpt.com/","_blank");
+
+window.addEventListener("online",()=>{$("status").textContent="online"});
+window.addEventListener("offline",()=>{$("status").textContent="offline"});
+
+let deferredPrompt=null;
+window.addEventListener("beforeinstallprompt",e=>{
+  e.preventDefault(); deferredPrompt=e; $("install").classList.add("show");
+});
+$("install").onclick=async()=>{
+  if(!deferredPrompt)return;
+  deferredPrompt.prompt();
+  await deferredPrompt.userChoice;
+  deferredPrompt=null;
+  $("install").classList.remove("show");
+};
+
+if("serviceWorker" in navigator){
+  window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js"));
+}
+render();vis();
 </script>
 </body>
 </html>
