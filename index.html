@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#152419" />
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="icon" href="/icons/icon-192.png" />
+  <title>Papelada CCP — Admissões</title>
+  <style>
+    :root{--bg:#0f100f;--card:#151615;--field:#1a1b19;--field2:#20211f;--border:#2d2f2b;--text:#f3f4ef;--muted:#a8aaa4;--muted2:#777a73;--accent:#a2ca7a;--danger:#f0a0a0;--warn:#efd69a;--ok:#b9dda0;--r:18px;--r2:13px}
+    *{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}body{min-height:100vh;padding:calc(16px + env(safe-area-inset-top)) 14px calc(26px + env(safe-area-inset-bottom))}.app{max-width:720px;margin:auto}
+    .top{display:flex;gap:12px;align-items:flex-start;justify-content:space-between;margin-bottom:16px}.brand{min-width:0}.eyebrow{color:var(--accent);font-size:11px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;margin-bottom:4px}h1{font-family:Georgia,"Times New Roman",serif;font-size:24px;line-height:1.06;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sub{font-size:12.5px;color:var(--muted);line-height:1.45;margin:7px 0 0}.install{flex:0 0 auto;border:1px solid #48563f;background:#20271c;color:#eaf5e0;border-radius:12px;padding:9px 11px;font-weight:800;font-size:12px;cursor:pointer}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.018),rgba(255,255,255,.006));border:1px solid var(--border);border-radius:var(--r);padding:15px;box-shadow:0 16px 50px rgba(0,0,0,.34)}.grid{display:grid;gap:14px}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:560px){.two{grid-template-columns:1fr}}
+    label{display:block;font-size:14px;font-weight:850;margin-bottom:7px}.field,.select{width:100%;background:var(--field);border:1px solid var(--border);color:var(--text);border-radius:var(--r2);padding:14px 14px;font-size:16px;outline:none}.field:focus,.select:focus{border-color:#516047;background:var(--field2)}.field::placeholder{color:var(--muted2)}.select{appearance:none}.selectWrap{position:relative}.selectWrap:after{content:"⌄";position:absolute;right:13px;top:50%;transform:translateY(-58%);pointer-events:none;color:var(--muted);font-size:20px}.hint{font-size:11.7px;line-height:1.4;color:var(--muted);margin:7px 1px 0}.hidden{display:none!important}
+    .btn{width:100%;min-height:48px;border:1px solid var(--border);border-radius:14px;background:var(--field);color:var(--text);padding:12px 15px;font-size:15px;font-weight:850;cursor:pointer}.btn.primary{background:#20271c;border-color:#46573b}.btn.send{background:#294020;border-color:#607f4f;color:#f1f8ec}.btn:disabled{opacity:.38;cursor:not-allowed}.divider{height:1px;background:var(--border);margin:17px 0}.sectionHead{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}.sectionTitle{margin:0;font-size:15px;font-weight:900}.count{font-size:12px;color:var(--muted);border:1px solid var(--border);background:var(--field);border-radius:999px;padding:5px 8px}.empty{border:1px dashed var(--border);border-radius:14px;padding:14px;color:var(--muted);font-size:13px}.list{display:grid;gap:9px}.patient{display:grid;grid-template-columns:1fr auto;gap:10px;padding:12px;border:1px solid var(--border);border-radius:13px;background:var(--field)}.patientName{font-weight:900;font-size:14px}.patientMeta{margin-top:4px;color:var(--muted);font-size:12px;line-height:1.45}.actions{display:flex;flex-direction:column;gap:5px}.mini{height:32px;border:1px solid var(--border);border-radius:9px;background:#141513;color:var(--muted);font-size:11px;font-weight:800;cursor:pointer}.mini.del{color:var(--danger)}
+    details.settings{margin-top:15px;border-top:1px solid var(--border);padding-top:14px}details.settings summary{cursor:pointer;color:#c8cbbf;font-weight:850;font-size:13px}.settingsBody{display:grid;gap:12px;margin-top:12px}.status{min-height:20px;font-size:12px;line-height:1.4;color:var(--muted);margin-top:9px}.status.ok{color:var(--ok)}.status.err{color:#ffadad}.status.warn{color:var(--warn)}.sticky{position:sticky;bottom:6px;padding-top:13px;background:linear-gradient(180deg,rgba(15,16,15,0),rgba(15,16,15,.96) 35%)}.foot{margin:13px 4px 0;text-align:center;color:var(--muted2);font-size:10.8px;line-height:1.45}.linkBtn{border:0;background:transparent;color:var(--muted);font-size:11.5px;padding:7px;cursor:pointer}.rowEnd{display:flex;justify-content:flex-end;gap:6px}.spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.28);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite;vertical-align:-2px;margin-right:7px}@keyframes spin{to{transform:rotate(360deg)}}
+    .privacy{margin-top:11px;padding:11px 12px;border-radius:12px;background:#121512;border:1px solid #2d352a;color:#9da595;font-size:11.3px;line-height:1.45}
+  </style>
+</head>
+<body>
+<main class="app">
+  <header class="top">
+    <div class="brand"><div class="eyebrow">CCP • HUWC</div><h1>PAPELADA CCP</h1><p class="sub">Admissões — Termo de Consentimento + Protocolo de TEV</p></div>
+    <button id="installBtn" class="install hidden" type="button">Instalar app</button>
+  </header>
+
+  <section class="card">
+    <div class="grid">
+      <div><label for="nome">Nome completo do paciente</label><input id="nome" class="field" autocomplete="off" placeholder="Ex: Paloma Manoela da Silva Sotero"></div>
+      <div class="two">
+        <div><label for="prontuario">Prontuário</label><input id="prontuario" class="field" inputmode="numeric" autocomplete="off" placeholder="Ex: 1.832.951"></div>
+        <div><label for="sexo">Sexo</label><div class="selectWrap"><select id="sexo" class="select"><option value="">Selecione...</option><option>Feminino</option><option>Masculino</option></select></div></div>
+      </div>
+      <div>
+        <label for="procedimento">Procedimento / cirurgia</label>
+        <div class="two">
+          <div class="selectWrap"><select id="procedimento" class="select"><option value="">Selecione...</option><option>Tireoidectomia total</option><option>Tireoidectomia parcial</option><option>Parotidectomia</option><option>Esvaziamento cervical</option><option>Traqueostomia</option><option>Laringectomia total</option><option>Laringectomia parcial</option><option>Glossectomia</option><option>Mandibulectomia</option><option>Ressecção de tumor de cavidade oral</option><option value="Outro">Outro</option></select></div>
+          <div class="selectWrap"><select id="lateralidade" class="select"><option value="">Sem lateralidade</option><option value="direita">Direita</option><option value="esquerda">Esquerda</option><option value="bilateral">Bilateral</option></select></div>
+        </div>
+        <input id="outro" class="field hidden" style="margin-top:9px" autocomplete="off" placeholder="Digite o procedimento">
+        <p class="hint">A lateralidade entra no nome da cirurgia, mas não é especificada na lista de riscos.</p>
+      </div>
+      <div><label for="data">Data da cirurgia</label><input id="data" class="field" inputmode="numeric" maxlength="10" autocomplete="off" placeholder="Ex: 10/09/2026"><p class="hint">No TEV, a data é automaticamente a data da geração, não a data da cirurgia.</p></div>
+      <button id="addBtn" class="btn primary" type="button">Adicionar à lista</button>
+      <button id="cancelEdit" class="btn hidden" type="button">Cancelar edição</button>
+    </div>
+
+    <div class="divider"></div>
+    <div class="sectionHead"><h2 class="sectionTitle">Pacientes na lista</h2><span id="count" class="count">0</span></div>
+    <div id="empty" class="empty">Nenhum paciente adicionado ainda.</div><div id="list" class="list"></div>
+    <div class="rowEnd"><button id="clear" class="linkBtn" type="button">Limpar lista</button></div>
+
+    <details class="settings" open>
+      <summary>Envio por e-mail</summary>
+      <div class="settingsBody">
+        <div><label for="email">E-mail de destino</label><input id="email" class="field" type="email" autocomplete="email" placeholder="seu-email@exemplo.com"><p class="hint">O e-mail fica salvo apenas neste aparelho. O servidor pode ser configurado para aceitar somente endereços previamente autorizados.</p></div>
+        <div><label for="appKey">Chave do aplicativo</label><input id="appKey" class="field" type="password" autocomplete="off" placeholder="Chave configurada no servidor"><p class="hint">A chave impede uso casual do endpoint por terceiros. Ela fica armazenada localmente no aparelho.</p></div>
+      </div>
+    </details>
+
+    <div class="privacy">Por privacidade, o lote de pacientes fica apenas na sessão atual do app; não é salvo em banco de dados. O assunto e o corpo do e-mail não incluem nome, prontuário ou procedimento.</div>
+    <div id="status" class="status"></div>
+    <div class="sticky"><button id="sendBtn" class="btn send" type="button" disabled>Gerar e enviar por e-mail</button></div>
+  </section>
+  <p class="foot">Requer internet para gerar/enviar. O app pode ser instalado na tela inicial após publicação em HTTPS.</p>
+</main>
+<script>
+  const SESS='ccp_admissoes_session_v1', EMAIL='ccp_email_v1', KEY='ccp_key_v1'; let patients=[], editing=null, installPrompt=null;
+  const $=id=>document.getElementById(id), els={nome:$('nome'),prontuario:$('prontuario'),sexo:$('sexo'),procedimento:$('procedimento'),lateralidade:$('lateralidade'),outro:$('outro'),data:$('data'),list:$('list'),empty:$('empty'),count:$('count'),send:$('sendBtn'),status:$('status'),email:$('email'),appKey:$('appKey')};
+  const clean=s=>(s||'').replace(/\s+/g,' ').trim(); const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+  function saveSession(){sessionStorage.setItem(SESS,JSON.stringify(patients))} function load(){try{patients=JSON.parse(sessionStorage.getItem(SESS)||'[]')}catch{patients=[]} els.email.value=localStorage.getItem(EMAIL)||'';els.appKey.value=localStorage.getItem(KEY)||'';render()}
+  function setStatus(t='',type=''){els.status.textContent=t;els.status.className='status'+(type?' '+type:'')}
+  function fmtChart(v){let d=v.replace(/\D/g,'').slice(0,12),a=[];while(d.length>3){a.unshift(d.slice(-3));d=d.slice(0,-3)}if(d)a.unshift(d);return a.join('.')}
+  function fmtDate(v){const d=v.replace(/\D/g,'').slice(0,8);return d.length<=2?d:d.length<=4?d.slice(0,2)+'/'+d.slice(2):d.slice(0,2)+'/'+d.slice(2,4)+'/'+d.slice(4)}
+  function validDate(v){const m=/^(\d{2})\/(\d{2})\/(\d{4})$/.exec(v);if(!m)return false;const x=new Date(+m[3],+m[2]-1,+m[1]);return x.getFullYear()==+m[3]&&x.getMonth()==+m[2]-1&&x.getDate()==+m[1]}
+  function procedure(){let p=els.procedimento.value==='Outro'?clean(els.outro.value):clean(els.procedimento.value);if(p&&els.lateralidade.value)p+=' '+els.lateralidade.value;return p}
+  function reset(){['nome','prontuario','data'].forEach(k=>els[k].value='');els.sexo.value='';els.procedimento.value='';els.lateralidade.value='';els.outro.value='';els.outro.classList.add('hidden');editing=null;$('addBtn').textContent='Adicionar à lista';$('cancelEdit').classList.add('hidden');els.nome.focus()}
+  function render(){els.list.innerHTML='';els.count.textContent=patients.length;els.empty.classList.toggle('hidden',patients.length>0);els.send.disabled=patients.length===0;patients.forEach((p,i)=>{const d=document.createElement('div');d.className='patient';d.innerHTML=`<div><div class="patientName">${esc(p.nome)}</div><div class="patientMeta">Prontuário: ${esc(p.prontuario)} • ${esc(p.sexo)}<br>${esc(p.procedimento)}<br>Cirurgia: ${esc(p.dataCirurgia)}</div></div><div class="actions"><button class="mini" data-a="edit" data-i="${i}">Editar</button><button class="mini del" data-a="del" data-i="${i}">Excluir</button></div>`;els.list.appendChild(d)});saveSession()}
+  function add(){const p={nome:clean(els.nome.value),prontuario:clean(els.prontuario.value),sexo:els.sexo.value,procedimento:procedure(),dataCirurgia:els.data.value};if(!Object.values(p).every(Boolean))return setStatus('Preencha todos os campos obrigatórios.','err');if(!validDate(p.dataCirurgia))return setStatus('Confira a data da cirurgia.','err');if(editing===null)patients.push(p);else patients[editing]=p;render();reset();setStatus('Paciente adicionado ao lote.','ok')}
+  function edit(i){const p=patients[i];editing=i;els.nome.value=p.nome;els.prontuario.value=p.prontuario;els.sexo.value=p.sexo;els.data.value=p.dataCirurgia;const lats=['direita','esquerda','bilateral'];let base=p.procedimento,lat='';for(const l of lats)if(base.toLowerCase().endsWith(' '+l)){lat=l;base=base.slice(0,-l.length-1)}els.lateralidade.value=lat;const opts=[...els.procedimento.options].map(o=>o.value);if(opts.includes(base)){els.procedimento.value=base;els.outro.classList.add('hidden')}else{els.procedimento.value='Outro';els.outro.value=base;els.outro.classList.remove('hidden')}$('addBtn').textContent='Salvar alterações';$('cancelEdit').classList.remove('hidden');scrollTo({top:0,behavior:'smooth'})}
+  async function send(){const email=clean(els.email.value),key=els.appKey.value;if(!/^\S+@\S+\.\S+$/.test(email))return setStatus('Informe um e-mail de destino válido.','err');localStorage.setItem(EMAIL,email);localStorage.setItem(KEY,key);if(!confirm(`Gerar documentos de ${patients.length} paciente(s) e enviar para ${email}?`))return;els.send.disabled=true;els.send.innerHTML='<span class="spinner"></span>Gerando e enviando...';setStatus('Processando o lote. Não feche o app.','warn');try{const r=await fetch('/api/generate',{method:'POST',headers:{'Content-Type':'application/json','X-App-Key':key},body:JSON.stringify({email,pacientes:patients})});const j=await r.json().catch(()=>({error:'Resposta inválida do servidor.'}));if(!r.ok||!j.ok)throw new Error(j.error||'Falha ao gerar documentos.');patients=[];render();reset();setStatus(`Enviado com sucesso para ${email}. Arquivo: ${j.arquivo}`,'ok')}catch(e){setStatus(e.message||'Falha no envio.','err')}finally{els.send.innerHTML='Gerar e enviar por e-mail';els.send.disabled=patients.length===0}}
+  els.prontuario.addEventListener('input',()=>els.prontuario.value=fmtChart(els.prontuario.value));els.data.addEventListener('input',()=>els.data.value=fmtDate(els.data.value));els.procedimento.addEventListener('change',()=>{els.outro.classList.toggle('hidden',els.procedimento.value!=='Outro');if(els.procedimento.value==='Outro')els.outro.focus()});$('addBtn').onclick=add;$('cancelEdit').onclick=reset;$('clear').onclick=()=>{if(patients.length&&confirm('Limpar todo o lote?')){patients=[];render();reset();setStatus('Lista limpa.','warn')}};els.list.onclick=e=>{const b=e.target.closest('[data-a]');if(!b)return;const i=+b.dataset.i;if(b.dataset.a==='edit')edit(i);else{patients.splice(i,1);render();setStatus('Paciente removido.','warn')}};els.send.onclick=send;
+  els.email.addEventListener('change',()=>localStorage.setItem(EMAIL,clean(els.email.value)));els.appKey.addEventListener('change',()=>localStorage.setItem(KEY,els.appKey.value));
+  window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e;$('installBtn').classList.remove('hidden')});$('installBtn').onclick=async()=>{if(!installPrompt)return;installPrompt.prompt();await installPrompt.userChoice;installPrompt=null;$('installBtn').classList.add('hidden')};window.addEventListener('appinstalled',()=>$('installBtn').classList.add('hidden'));
+  if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}));load();
+</script>
+</body>
+</html>
