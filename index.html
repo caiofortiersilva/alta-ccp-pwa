@@ -4,46 +4,37 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#1e5c35">
+<meta name="robots" content="noindex,nofollow,noarchive">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
 <title>Alta CCP</title>
 <style>
-:root{
-  --bg:#0f1115;--card:#171a21;--card2:#1c222b;--text:#f5f7f8;--muted:#aab2bd;
-  --border:#303846;--green:#2f9e44;--green2:#237a35;--danger:#b02a37;--chip:#222936
-}
+:root{--bg:#0f1115;--card:#171a21;--card2:#1c222b;--text:#f5f7f8;--muted:#aab2bd;--border:#303846;--green:#2f9e44;--green2:#237a35;--danger:#b02a37;--chip:#222936;--warn:#d9a441}
 *{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
-body{padding:env(safe-area-inset-top) 14px env(safe-area-inset-bottom)}
-.wrap{max-width:920px;margin:auto;padding:14px 0 30px}
-.header{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-.logo{width:44px;height:44px;border-radius:13px}.title h1{font-size:22px;margin:0}.title p{margin:2px 0 0;color:var(--muted);font-size:13px}
-.card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--border);border-radius:18px;padding:16px;margin-bottom:14px}
-h2{font-size:17px;margin:0 0 10px}.muted{color:var(--muted);font-size:13px}.docs{display:grid;gap:10px}
-.doc{display:flex;align-items:center;gap:12px;padding:14px;border:1px solid var(--border);border-radius:14px;background:#ffffff05}
-.doc input,.medtop input{width:20px;height:20px;accent-color:var(--green)}.ico{width:32px;text-align:center;font-size:23px}.doc strong{font-size:16px}
-.hidden{display:none!important}.section{border-top:1px solid #ffffff12;margin-top:16px;padding-top:14px}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:10px}
-.c12{grid-column:span 12}.c6{grid-column:span 6}.c4{grid-column:span 4}@media(max-width:700px){.c6,.c4{grid-column:span 12}}
-label{display:block;font-size:13px;font-weight:700;margin-bottom:5px}
-input,textarea{width:100%;background:#10151c;border:1px solid var(--border);color:var(--text);border-radius:12px;padding:11px;font-size:14px}
+body{padding:env(safe-area-inset-top) 14px env(safe-area-inset-bottom)}.wrap{max-width:920px;margin:auto;padding:14px 0 30px}
+.header{display:flex;align-items:center;gap:12px;margin-bottom:12px}.logo{width:44px;height:44px;border-radius:13px}.title h1{font-size:22px;margin:0}.title p{margin:2px 0 0;color:var(--muted);font-size:13px}
+.status{font-size:12px;color:var(--muted);margin-left:auto}.card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--border);border-radius:18px;padding:16px;margin-bottom:14px}
+h2{font-size:17px;margin:0 0 10px}.muted{color:var(--muted);font-size:13px}.docs{display:grid;gap:10px}.doc{display:flex;align-items:center;gap:12px;padding:14px;border:1px solid var(--border);border-radius:14px;background:#ffffff05}
+.doc input,.medtop input{width:20px;height:20px;accent-color:var(--green)}.ico{width:32px;text-align:center;font-size:23px}.doc strong{font-size:16px}.hidden{display:none!important}
+.section{border-top:1px solid #ffffff12;margin-top:16px;padding-top:14px}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:10px}.c12{grid-column:span 12}.c6{grid-column:span 6}.c4{grid-column:span 4}
+@media(max-width:700px){.c6,.c4{grid-column:span 12}}label{display:block;font-size:13px;font-weight:700;margin-bottom:5px}
+input,textarea,select{width:100%;background:#10151c;border:1px solid var(--border);color:var(--text);border-radius:12px;padding:11px;font-size:14px}
 textarea{min-height:72px;resize:vertical}.med{border:1px solid var(--border);border-radius:12px;padding:10px;margin:8px 0}.medtop{display:flex;align-items:center;gap:8px}
-.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.actions.sticky{position:sticky;bottom:10px;background:#11161dd9;padding:8px;border-radius:16px;backdrop-filter:blur(10px);z-index:5}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.actions.sticky{position:sticky;bottom:10px;background:#11161de8;padding:8px;border-radius:16px;backdrop-filter:blur(10px);z-index:5}
 button{border:0;border-radius:12px;padding:11px 14px;font-weight:800;font-size:14px;cursor:pointer}.primary{background:var(--green);color:white}.secondary{background:transparent;color:white;border:1px solid var(--border)}
 .danger{background:#b02a3722;color:#ffc2c8;border:1px solid #b02a3766}.queue{display:grid;gap:8px}.q{border:1px solid var(--border);border-radius:12px;padding:12px;display:flex;justify-content:space-between;gap:8px}
-.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}.chip{font-size:12px;background:var(--chip);border:1px solid var(--border);border-radius:999px;padding:4px 8px}
-.empty{border:1px dashed var(--border);border-radius:12px;padding:14px;text-align:center;color:var(--muted)}
-.notice{padding:10px;border-radius:12px;background:#1d3422;border:1px solid #315c39;font-size:13px;margin-top:10px}
-.status{font-size:12px;color:var(--muted);margin-left:auto}.install{display:none}.install.show{display:inline-block}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}.chip{font-size:12px;background:var(--chip);border:1px solid var(--border);border-radius:999px;padding:4px 8px}.empty{border:1px dashed var(--border);border-radius:12px;padding:14px;text-align:center;color:var(--muted)}
+.notice{padding:10px;border-radius:12px;background:#1d3422;border:1px solid #315c39;font-size:13px;margin-top:10px}.notice.warn{background:#332b18;border-color:#665426}.feedback{min-height:20px;margin-top:10px;font-size:13px;color:var(--muted)}
+.feedback.ok{color:#b8e4c0}.feedback.err{color:#ffb5b5}.spinner{display:inline-block;width:14px;height:14px;border:2px solid #ffffff44;border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite;vertical-align:-2px;margin-right:7px}@keyframes spin{to{transform:rotate(360deg)}}
+details{margin-top:12px;border-top:1px solid var(--border);padding-top:12px}summary{cursor:pointer;font-weight:800;font-size:13px}.install{display:none}.install.show{display:inline-block}
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="header">
     <img src="icon-192.png" class="logo" alt="">
-    <div class="title">
-      <h1>Alta CCP</h1>
-      <p>Documentos de alta • CCP</p>
-    </div>
+    <div class="title"><h1>Alta CCP</h1><p>Documentos de alta • CCP</p></div>
     <span class="status" id="status">online</span>
   </div>
 
@@ -57,61 +48,61 @@ button{border:0;border-radius:12px;padding:11px 14px;font-weight:800;font-size:1
     </div>
 
     <div id="form" class="hidden">
-      <div class="section">
-        <div class="grid"><div class="c12"><label>Nome do paciente</label><input id="paciente" placeholder="Nome completo"></div></div>
-      </div>
+      <div class="section"><div class="grid"><div class="c12"><label>Nome do paciente</label><input id="paciente" placeholder="Nome completo"></div></div></div>
+      <div id="s1" class="section hidden"><h2>Atestado médico</h2><div class="grid">
+        <div class="c12"><label>Procedimento</label><input id="procedimento" placeholder="Ex.: tireoidectomia total"></div>
+        <div class="c4"><label>CID-10</label><input id="cid" placeholder="Ex.: D44.0"></div>
+        <div class="c4"><label>Data do procedimento</label><input id="dataProc" type="date"></div>
+        <div class="c4"><label>Data da internação</label><input id="dataInt" type="date"></div>
+        <div class="c4"><label>Dias de afastamento</label><input id="dias" type="number" min="1"></div>
+      </div></div>
 
-      <div id="s1" class="section hidden">
-        <h2>Atestado médico</h2>
-        <div class="grid">
-          <div class="c12"><label>Procedimento</label><input id="procedimento" placeholder="Ex.: tireoidectomia total"></div>
-          <div class="c4"><label>CID-10</label><input id="cid" placeholder="Ex.: D44.0"></div>
-          <div class="c4"><label>Data do procedimento</label><input id="dataProc" type="date"></div>
-          <div class="c4"><label>Data da internação</label><input id="dataInt" type="date"></div>
-          <div class="c4"><label>Dias de afastamento</label><input id="dias" type="number" min="1"></div>
-        </div>
-      </div>
+      <div id="s2" class="section hidden"><h2>Declaração de acompanhante</h2><div class="grid">
+        <div class="c6"><label>Nome do acompanhante</label><input id="acNome"></div>
+        <div class="c6"><label>CPF (opcional)</label><input id="acCpf"></div>
+        <div class="c6"><label>Início</label><input id="acIni" type="date"></div>
+        <div class="c6"><label>Fim</label><input id="acFim" type="date"></div>
+      </div></div>
 
-      <div id="s2" class="section hidden">
-        <h2>Declaração de acompanhante</h2>
-        <div class="grid">
-          <div class="c6"><label>Nome do acompanhante</label><input id="acNome"></div>
-          <div class="c6"><label>CPF (opcional)</label><input id="acCpf"></div>
-          <div class="c6"><label>Início</label><input id="acIni" type="date"></div>
-          <div class="c6"><label>Fim</label><input id="acFim" type="date"></div>
-        </div>
-      </div>
+      <div id="s3" class="section hidden"><h2>Receituário simples</h2><div id="simples"></div><label>Outros (opcional)</label><textarea id="simplesOutros"></textarea></div>
+      <div id="s4" class="section hidden"><h2>Receituário de controle especial</h2><label>Logradouro do paciente</label><input id="endereco"><div id="especial"></div><label>Outros (opcional)</label><textarea id="especialOutros"></textarea></div>
 
-      <div id="s3" class="section hidden">
-        <h2>Receituário simples</h2>
-        <div id="simples"></div>
-        <label>Outros (opcional)</label><textarea id="simplesOutros"></textarea>
-      </div>
-
-      <div id="s4" class="section hidden">
-        <h2>Receituário de controle especial</h2>
-        <label>Logradouro do paciente</label><input id="endereco">
-        <div id="especial"></div>
-        <label>Outros (opcional)</label><textarea id="especialOutros"></textarea>
-      </div>
-
-      <div class="actions">
-        <button class="primary" id="add">＋ Adicionar à lista</button>
-        <button class="secondary" id="clear">Limpar formulário</button>
-      </div>
+      <div class="actions"><button class="primary" id="add">＋ Adicionar à lista</button><button class="secondary" id="clear">Limpar formulário</button></div>
     </div>
   </div>
 
   <div class="card">
     <h2>Fila de pacientes</h2>
     <div id="fila" class="queue"></div>
+
+    <div class="section">
+      <label for="recipient">Enviar documentos para</label>
+      <select id="recipient">
+        <option value="personal">Meu e-mail</option>
+        <option value="service">E-mail do serviço</option>
+        <option value="both">Ambos</option>
+      </select>
+
+      <details>
+        <summary>Configuração do aplicativo</summary>
+        <div style="margin-top:10px">
+          <label for="appKey">Chave do aplicativo</label>
+          <input id="appKey" type="password" autocomplete="off" placeholder="Preencha uma vez após configurar o servidor">
+          <div class="muted" style="margin-top:6px">A chave fica salva somente neste aparelho e não é enviada ao GitHub.</div>
+        </div>
+      </details>
+    </div>
+
+    <div id="hostNotice" class="notice warn hidden">Você está no GitHub Pages. O modo automático funcionará quando abrirmos o mesmo app pelo endereço do backend (Vercel). Enquanto isso, o botão de copiar continua funcionando.</div>
+    <div id="feedback" class="feedback"></div>
+
     <div class="actions sticky">
-      <button class="primary" id="gerar">Copiar dados para gerar</button>
-      <button class="secondary" id="abrirChat">Abrir ChatGPT</button>
+      <button class="primary" id="send">Gerar e enviar por e-mail</button>
+      <button class="secondary" id="copy">Copiar dados</button>
       <button class="danger" id="esvaziar">Esvaziar</button>
       <button class="secondary install" id="install">Instalar app</button>
     </div>
-    <div class="notice">Depois de copiar, abra esta conversa do ChatGPT, cole e envie. Eu gero os documentos a partir dos templates-mestre.</div>
+    <div class="notice">O servidor recebe os dados, gera os .docx em memória, envia por e-mail e descarta os arquivos. O assunto e o corpo do e-mail não incluem dados do paciente.</div>
   </div>
 </div>
 
@@ -143,85 +134,41 @@ const E=[
 ["Pregabalina (dose inicial)","75mg 1 CP à noite por 5 dias -------- 5 CP"],
 ["Gabapentina (dose inicial)","300mg 1 CP à noite por 5 dias -------- 5 CP"]
 ];
-const q=[],$=id=>document.getElementById(id);
-
-function medList(root,arr,p){
-  $(root).innerHTML=arr.map((m,i)=>`<div class="med"><div class="medtop"><input type="checkbox" id="${p}c${i}"><label style="margin:0">${m[0]}</label></div><textarea id="${p}t${i}" class="hidden">${m[1]}</textarea></div>`).join("");
-  arr.forEach((_,i)=>$(p+"c"+i).onchange=()=>$(p+"t"+i).classList.toggle("hidden",!$(p+"c"+i).checked));
-}
-medList("simples",S,"s"); medList("especial",E,"e");
-
-function vis(){
-  const any=["d1","d2","d3","d4"].some(id=>$(id).checked);
-  $("form").classList.toggle("hidden",!any);
-  $("s1").classList.toggle("hidden",!$("d1").checked);
-  $("s2").classList.toggle("hidden",!$("d2").checked);
-  $("s3").classList.toggle("hidden",!$("d3").checked);
-  $("s4").classList.toggle("hidden",!$("d4").checked);
-}
+const q=[],$=id=>document.getElementById(id), KEY_STORAGE="alta_ccp_app_key_v1";
+function medList(root,arr,p){$(root).innerHTML=arr.map((m,i)=>`<div class="med"><div class="medtop"><input type="checkbox" id="${p}c${i}"><label style="margin:0">${m[0]}</label></div><textarea id="${p}t${i}" class="hidden">${m[1]}</textarea></div>`).join("");arr.forEach((_,i)=>$(p+"c"+i).onchange=()=>$(p+"t"+i).classList.toggle("hidden",!$(p+"c"+i).checked))}
+medList("simples",S,"s");medList("especial",E,"e");
+function vis(){const any=["d1","d2","d3","d4"].some(id=>$(id).checked);$("form").classList.toggle("hidden",!any);$("s1").classList.toggle("hidden",!$("d1").checked);$("s2").classList.toggle("hidden",!$("d2").checked);$("s3").classList.toggle("hidden",!$("d3").checked);$("s4").classList.toggle("hidden",!$("d4").checked)}
 ["d1","d2","d3","d4"].forEach(id=>$(id).onchange=vis);
-
 const val=id=>$(id).value.trim();
 function meds(arr,p){return arr.flatMap((m,i)=>$(p+"c"+i).checked?[{nome:m[0],posologia:$(p+"t"+i).value.trim()}]:[])}
-
-function collect(){
-  const x={paciente:val("paciente")};
-  if($("d1").checked)x.atestado={procedimento:val("procedimento"),cid10:val("cid"),dataProcedimento:val("dataProc"),dataInternacao:val("dataInt"),diasAfastamento:val("dias")};
-  if($("d2").checked)x.acompanhante={acompanhanteNome:val("acNome"),acompanhanteCpf:val("acCpf"),inicio:val("acIni"),fim:val("acFim")};
-  if($("d3").checked)x.receitaSimples={meds:meds(S,"s"),outros:val("simplesOutros")};
-  if($("d4").checked)x.receitaEspecial={endereco:val("endereco"),meds:meds(E,"e"),outros:val("especialOutros")};
-  return x;
-}
+function collect(){const x={paciente:val("paciente")};if($("d1").checked)x.atestado={procedimento:val("procedimento"),cid10:val("cid"),dataProcedimento:val("dataProc"),dataInternacao:val("dataInt"),diasAfastamento:val("dias")};if($("d2").checked)x.acompanhante={acompanhanteNome:val("acNome"),acompanhanteCpf:val("acCpf"),inicio:val("acIni"),fim:val("acFim")};if($("d3").checked)x.receitaSimples={meds:meds(S,"s"),outros:val("simplesOutros")};if($("d4").checked)x.receitaEspecial={endereco:val("endereco"),meds:meds(E,"e"),outros:val("especialOutros")};return x}
 function names(x){const a=[];if(x.atestado)a.push("Atestado");if(x.acompanhante)a.push("Acompanhante");if(x.receitaSimples)a.push("Receita simples");if(x.receitaEspecial)a.push("Controle especial");return a}
-function render(){
-  $("fila").innerHTML=q.length?q.map((x,i)=>`<div class="q"><div><b>${x.paciente}</b><div class="chips">${names(x).map(n=>`<span class="chip">${n}</span>`).join("")}</div></div><button class="danger" onclick="rm(${i})">Remover</button></div>`).join(""):`<div class="empty">Nenhum paciente adicionado.</div>`;
-}
+function render(){$("fila").innerHTML=q.length?q.map((x,i)=>`<div class="q"><div><b>${x.paciente}</b><div class="chips">${names(x).map(n=>`<span class="chip">${n}</span>`).join("")}</div></div><button class="danger" onclick="rm(${i})">Remover</button></div>`).join(""):`<div class="empty">Nenhum paciente adicionado.</div>`}
 window.rm=i=>{q.splice(i,1);render()};
-
-function clearForm(){
-  ["paciente","procedimento","cid","dataProc","dataInt","dias","acNome","acCpf","acIni","acFim","simplesOutros","endereco","especialOutros"].forEach(id=>$(id).value="");
-  ["d1","d2","d3","d4"].forEach(id=>$(id).checked=false);
-  S.forEach((m,i)=>{$("sc"+i).checked=false;$("st"+i).value=m[1];$("st"+i).classList.add("hidden")});
-  E.forEach((m,i)=>{$("ec"+i).checked=false;$("et"+i).value=m[1];$("et"+i).classList.add("hidden")});
-  vis();
-}
-$("add").onclick=()=>{
-  const x=collect();
-  if(!x.paciente)return alert("Informe o nome do paciente.");
-  if(!["d1","d2","d3","d4"].some(id=>$(id).checked))return alert("Selecione pelo menos um documento.");
-  q.push(x);render();clearForm();
-};
-$("clear").onclick=clearForm;
-$("esvaziar").onclick=()=>{q.length=0;render()};
-
-async function copyPayload(){
+function clearForm(){["paciente","procedimento","cid","dataProc","dataInt","dias","acNome","acCpf","acIni","acFim","simplesOutros","endereco","especialOutros"].forEach(id=>$(id).value="");["d1","d2","d3","d4"].forEach(id=>$(id).checked=false);S.forEach((m,i)=>{$("sc"+i).checked=false;$("st"+i).value=m[1];$("st"+i).classList.add("hidden")});E.forEach((m,i)=>{$("ec"+i).checked=false;$("et"+i).value=m[1];$("et"+i).classList.add("hidden")});vis()}
+$("add").onclick=()=>{const x=collect();if(!x.paciente)return alert("Informe o nome do paciente.");if(!["d1","d2","d3","d4"].some(id=>$(id).checked))return alert("Selecione pelo menos um documento.");q.push(x);render();clearForm()};
+$("clear").onclick=clearForm;$("esvaziar").onclick=()=>{q.length=0;render()};
+function payload(){return {hoje:new Date().toISOString().slice(0,10),recipient:$("recipient").value,pacientes:q}}
+async function copyPayload(){if(!q.length)return alert("A fila está vazia.");const p=payload();const txt="GERAR_DOCUMENTOS_ALTA_LOTE\nJSON_INICIO\n"+JSON.stringify(p,null,2)+"\nJSON_FIM";try{await navigator.clipboard.writeText(txt);setFeedback("Dados copiados.","ok")}catch(e){prompt("Copie o conteúdo abaixo:",txt)}}
+$("copy").onclick=copyPayload;
+function setFeedback(t="",type=""){$("feedback").textContent=t;$("feedback").className="feedback"+(type?" "+type:"")}
+$("appKey").value=localStorage.getItem(KEY_STORAGE)||"";$("appKey").addEventListener("input",()=>localStorage.setItem(KEY_STORAGE,$("appKey").value));
+$("send").onclick=async()=>{
   if(!q.length)return alert("A fila está vazia.");
-  const payload={hoje:new Date().toISOString().slice(0,10),pacientes:q};
-  const txt="GERAR_DOCUMENTOS_ALTA_LOTE\nJSON_INICIO\n"+JSON.stringify(payload,null,2)+"\nJSON_FIM";
-  try{await navigator.clipboard.writeText(txt);alert("Dados copiados. Agora abra esta conversa do ChatGPT e cole.");}
-  catch(e){prompt("Copie o conteúdo abaixo:",txt)}
-}
-$("gerar").onclick=copyPayload;
-$("abrirChat").onclick=()=>window.open("https://chatgpt.com/","_blank");
-
-window.addEventListener("online",()=>{$("status").textContent="online"});
-window.addEventListener("offline",()=>{$("status").textContent="offline"});
-
-let deferredPrompt=null;
-window.addEventListener("beforeinstallprompt",e=>{
-  e.preventDefault(); deferredPrompt=e; $("install").classList.add("show");
-});
-$("install").onclick=async()=>{
-  if(!deferredPrompt)return;
-  deferredPrompt.prompt();
-  await deferredPrompt.userChoice;
-  deferredPrompt=null;
-  $("install").classList.remove("show");
+  const key=$("appKey").value.trim();
+  const btn=$("send"),old=btn.innerHTML;btn.disabled=true;btn.innerHTML='<span class="spinner"></span>Gerando e enviando...';setFeedback("");
+  try{
+    const r=await fetch("/api/generate",{method:"POST",headers:{"Content-Type":"application/json","X-App-Key":key},body:JSON.stringify(payload())});
+    let data={};try{data=await r.json()}catch{}
+    if(!r.ok)throw new Error(data.error||`Erro ${r.status}`);
+    setFeedback(`${data.generated} documento(s) enviado(s) com sucesso.`,"ok");q.length=0;render();
+  }catch(e){setFeedback(e.message||"Falha ao gerar/enviar.","err")}
+  finally{btn.disabled=false;btn.innerHTML=old}
 };
-
-if("serviceWorker" in navigator){
-  window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js"));
-}
+const onGithub=location.hostname.endsWith("github.io");$("hostNotice").classList.toggle("hidden",!onGithub);
+window.addEventListener("online",()=>{$("status").textContent="online"});window.addEventListener("offline",()=>{$("status").textContent="offline"});
+let deferredPrompt=null;window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredPrompt=e;$("install").classList.add("show")});$("install").onclick=async()=>{if(!deferredPrompt)return;deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;$("install").classList.remove("show")};
+if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js"));
 render();vis();
 </script>
 </body>
