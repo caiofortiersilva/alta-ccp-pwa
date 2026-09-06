@@ -1,0 +1,10 @@
+{
+  "name": "alta-ccp-pwa",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "docx": "^9.5.1",
+    "jszip": "^3.10.1",
+    "nodemailer": "^7.0.6"
+  }
+}
