@@ -1,20 +1,20 @@
 const fs = require('fs');
 const path = require('path');
 
-// Corrige o logo usado pelo gerador legado: o JPEG embutido nele estava cortado.
-// Aqui substituímos ImageRun antes de carregar ./generate, usando o PNG completo
-// extraído dos templates-mestre originais.
+// O gerador legado usa ImageRun para inserir o brasão da UFC.
+// Para maximizar a compatibilidade com Word, Google Docs e WPS no celular,
+// usamos uma versão JPEG do brasão completo sobre fundo branco.
 const docxPath = require.resolve('docx');
 const docx = require(docxPath);
 const OriginalImageRun = docx.ImageRun;
 const fullLogo = Buffer.from(
-  fs.readFileSync(path.join(__dirname, 'ufc-logo.b64'), 'utf8').trim(),
+  fs.readFileSync(path.join(__dirname, 'ufc-logo-jpg.b64'), 'utf8').trim(),
   'base64'
 );
 
 class FullLogoImageRun extends OriginalImageRun {
   constructor(options = {}) {
-    super({ ...options, data: fullLogo, type: 'png' });
+    super({ ...options, data: fullLogo, type: 'jpg' });
   }
 }
 
